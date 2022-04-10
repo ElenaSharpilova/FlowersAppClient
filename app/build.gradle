@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs.kotlin"
     id 'com.google.gms.google-services'
+    id "kotlinx-serialization"
 }
 
 android {
@@ -86,4 +87,18 @@ dependencies {
     //Koin
     implementation 'org.koin:koin-android:2.0.1'
     implementation 'org.koin:koin-android-viewmodel:2.0.1'
+
+    //DataStore
+    implementation("androidx.datastore:datastore:1.0.0")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    //Room
+    implementation "androidx.room:room-runtime:2.4.2"
+    implementation 'androidx.databinding:databinding-common:7.1.2'
+    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+
+    implementation 'com.auth0.android:jwtdecode:2.0.1'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
 }

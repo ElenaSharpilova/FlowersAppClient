@@ -1,27 +1,27 @@
 package android.example.flowerschemistry.viewmodel
 
-
-import android.example.flowerschemistry.repository.Repository
-import androidx.lifecycle.*
+import android.example.flowerschemistry.data.models.Token
+import android.example.flowerschemistry.data.repository.Repository
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repository: Repository): ViewModel(), DefaultLifecycleObserver {
 
-    val userCreated = MutableLiveData<Boolean>()
-    var errorMessage = MutableLiveData<String>()
+    val token = MutableLiveData<Token>()
+    val errorMessage = MutableLiveData<String>()
 
-    override fun onCreate(owner: LifecycleOwner) {
-        super.onCreate(owner)
-    }
 
-    fun createUser(number:String, name:String){
+
+    fun getToken(number: String) {
         viewModelScope.launch {
-            val response = repository.createUser(number, name)
-            if (response.isSuccessful)
-               {
-                    userCreated.postValue(true)
-                }
-            else {
+            val response = repository.getToken(number)
+            if (response.isSuccessful) {
+                token.postValue(response.body())
+            }
+            else{
                 errorMessage.postValue(response.errorBody().toString())
             }
         }
