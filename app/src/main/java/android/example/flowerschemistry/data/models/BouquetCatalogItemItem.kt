@@ -8,6 +8,7 @@ import java.io.Serializable
 data class BouquetCatalogItemItem(
     val category: Category,
     @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val cost: Int,
     val date: String,
     val dateExp: String,
@@ -15,7 +16,6 @@ data class BouquetCatalogItemItem(
     val filial: Filial,
     val florist: Florist,
     val flowers: List<Any>,
-    val id: Int,
     val image: String,
     val name: String,
     val selection: String,
