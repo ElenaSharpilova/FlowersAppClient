@@ -3,6 +3,7 @@ package android.example.flowerschemistry.ui.adapters
 import android.example.flowerschemistry.R
 import android.example.flowerschemistry.databinding.ItemCardCatalogBinding
 import android.example.flowerschemistry.data.models.BouquetCatalogItemItem
+import android.example.flowerschemistry.ui.utils.Delegates
 import android.example.flowerschemistry.ui.utils.OnItemClickListenerCatalog
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 
-class CatalogAdapter(val clickListener: OnItemClickListenerCatalog): RecyclerView.Adapter<CatalogAdapter.ViewHolder>() {
+
+class CatalogAdapter(private val orderClicked: Delegates.OrderClicked): RecyclerView.Adapter<CatalogAdapter.ViewHolder>() {
 
     private var listCatalog = listOf<BouquetCatalogItemItem>()
 
@@ -23,15 +25,11 @@ class CatalogAdapter(val clickListener: OnItemClickListenerCatalog): RecyclerVie
 
     inner class ViewHolder(item: View): RecyclerView.ViewHolder(item){
         val binding = ItemCardCatalogBinding.bind(item)
-        fun bind(card:BouquetCatalogItemItem, action:OnItemClickListenerCatalog) = with(binding){
+        fun bind(card:BouquetCatalogItemItem) = with(binding){
             Glide.with(itemView.context).load(card.image).into(ivBouquetCatalog)
             tvBouquetName.text = card.name
             tvBouquetDescription.text = card.description
             tvPrice.text = card.cost.toString()
-
-            itemView.setOnClickListener{
-                action.onItemClick(card)
-            }
         }
     }
 
@@ -41,10 +39,10 @@ class CatalogAdapter(val clickListener: OnItemClickListenerCatalog): RecyclerVie
     }
 
     override fun onBindViewHolder(holder: CatalogAdapter.ViewHolder, position: Int) {
-        holder.bind(listCatalog[position], clickListener)
-        /*holder.itemView.setOnClickListener {
-            clickListener.onItemClick(list[position])
-        }*/
+        holder.bind(listCatalog[position])
+        holder.binding.cvBouquet.setOnClickListener {
+            orderClicked.onItemClick(listCatalog[position])
+        }
     }
 
     override fun getItemCount(): Int {

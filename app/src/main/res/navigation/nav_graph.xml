@@ -96,6 +96,9 @@
         <action
             android:id="@+id/action_bouquetFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <argument
+            android:name="aboutBouquet"
+            app:argType="android.example.flowerschemistry.data.models.BouquetCatalogItemItem" />
     </fragment>
 
     <fragment

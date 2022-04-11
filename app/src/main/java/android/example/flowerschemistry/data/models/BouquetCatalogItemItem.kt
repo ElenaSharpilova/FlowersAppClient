@@ -4,10 +4,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(tableName = "cart_bouquets")
+//@Entity(tableName = "cart_bouquets")
 data class BouquetCatalogItemItem(
     val category: Category,
-    @PrimaryKey(autoGenerate = true)
+   // @PrimaryKey(autoGenerate = true)
     val id: Int,
     val cost: Int,
     val date: String,
@@ -15,7 +15,7 @@ data class BouquetCatalogItemItem(
     val description: String,
     val filial: Filial,
     val florist: Florist,
-    val flowers: List<Any>,
+    //val flowers: List<Flower>,
     val image: String,
     val name: String,
     val selection: String,

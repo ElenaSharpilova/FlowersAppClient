@@ -1,8 +1,10 @@
 package android.example.flowerschemistry.data.models
 
+import java.io.Serializable
+
 data class Florist(
     val id: Int,
-    val image: Any,
+    val image: String,
     val name: String,
     val password: String,
     val phoneNumber: String,
@@ -11,4 +13,4 @@ data class Florist(
     val status: String,
     val surname: String,
     val workShift: String
-)
+): Serializable

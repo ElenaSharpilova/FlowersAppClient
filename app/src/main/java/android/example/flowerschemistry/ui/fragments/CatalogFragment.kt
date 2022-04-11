@@ -4,6 +4,7 @@ import android.example.flowerschemistry.R
 import android.example.flowerschemistry.databinding.FragmentCatalogBinding
 import android.example.flowerschemistry.data.models.BouquetCatalogItemItem
 import android.example.flowerschemistry.ui.adapters.CatalogAdapter
+import android.example.flowerschemistry.ui.utils.Delegates
 import android.example.flowerschemistry.ui.utils.OnItemClickListenerCatalog
 import android.example.flowerschemistry.viewmodel.CatalogViewModel
 import android.os.Bundle
@@ -15,11 +16,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class CatalogFragment : Fragment(), OnItemClickListenerCatalog {
+class CatalogFragment : Fragment(), Delegates.OrderClicked {
     private var _binding: FragmentCatalogBinding? = null
     private val binding get() = _binding!!
     private val catalogViewModel by viewModel<CatalogViewModel>()
-    private val catalogAdapter by lazy { CatalogAdapter(this@CatalogFragment) }
+    private val catalogAdapter by lazy { CatalogAdapter(this) }
 
 
     override fun onCreateView(
@@ -68,7 +69,9 @@ class CatalogFragment : Fragment(), OnItemClickListenerCatalog {
         binding.progressBar.visibility = View.VISIBLE
     }
 
-    override fun onItemClick(item: BouquetCatalogItemItem) {
-        findNavController().navigate(R.id.action_catalogFragment_to_bouquetFragment)
+    override fun onItemClick(order: BouquetCatalogItemItem) {
+        val action = CatalogFragmentDirections.actionCatalogFragmentToBouquetFragment(order)
+        findNavController().navigate(action)
     }
+
 }
