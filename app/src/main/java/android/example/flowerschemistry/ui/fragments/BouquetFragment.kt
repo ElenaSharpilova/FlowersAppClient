@@ -28,7 +28,10 @@ class BouquetFragment : Fragment() {
        binding.tvNameBouquet.text = args.aboutBouquet.name
         binding.tvPrice.text = args.aboutBouquet.cost.toString()
         binding.tvDescription.text = args.aboutBouquet.description
-        Glide.with(requireContext()).load(args.aboutBouquet.image).into(binding.ivBouquet)
+        Glide.with(requireContext())
+            .load(args.aboutBouquet.image)
+            .centerCrop()
+            .into(binding.ivBouquet)
 
         binding.imBtnBack.setOnClickListener { findNavController().navigateUp() }
 

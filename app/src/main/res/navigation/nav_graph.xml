@@ -31,9 +31,10 @@
         android:label="BasketFragment">
 
 
+       />
         <action
-            android:id="@+id/action_basketFragment_to_orderFragment"
-            app:destination="@id/orderFragment" />
+            android:id="@+id/action_basketFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment
@@ -134,6 +135,9 @@
         <action
             android:id="@+id/action_yourOrdersFragment_to_completedOrdersFragment"
             app:destination="@id/completedOrdersFragment" />
+        <action
+            android:id="@+id/action_yourOrdersFragment_to_activeOrdersFragment"
+            app:destination="@id/activeOrdersFragment" />
     </fragment>
     <fragment
         android:id="@+id/recommendationFragment"
@@ -157,6 +161,15 @@
         tools:layout="@layout/fragment_completed_orders" >
         <action
             android:id="@+id/action_completedOrdersFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activeOrdersFragment"
+        android:name="android.example.flowerschemistry.ui.fragments.ActiveOrdersFragment"
+        android:label="fragment_active_orders"
+        tools:layout="@layout/fragment_active_orders" >
+        <action
+            android:id="@+id/action_activeOrdersFragment_to_orderDetailFragment"
             app:destination="@id/orderDetailFragment" />
     </fragment>
 </navigation>

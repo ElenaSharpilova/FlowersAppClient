@@ -45,15 +45,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_rating"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_bouquet_popular"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/tv_bouquet_name"
             style="@style/TextView_13sp_medium"

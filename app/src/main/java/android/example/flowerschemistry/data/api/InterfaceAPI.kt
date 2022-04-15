@@ -13,10 +13,10 @@ interface InterfaceAPI {
     @GET("bouquet/selection?selection=Рекомендации")
     suspend fun getBouquetRecommendation(): Response<ArrayList<BouquetSelectionItem>>
 
-    @GET("bouquet/selection?selection=Для%20девушки")
+    @GET("bouquet/selection?selection=Скидки")
     suspend fun getBouquetPopular(): Response<ArrayList<BouquetSelectionItem>>
 
-    @GET("bouquet/selection?selection=Для%20коллеги")
+    @GET("bouquet/selection?selection=Популярные")
     suspend fun getBouquetDiscount(): Response<ArrayList<BouquetSelectionItem>>
 
     suspend fun checkUserNumber(number: String): Response<Boolean>

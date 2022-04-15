@@ -7,6 +7,7 @@ import android.example.flowerschemistry.databinding.FragmentFavoritesBinding
 import android.example.flowerschemistry.data.models.BouquetCatalog
 import android.example.flowerschemistry.ui.AuthorizationPhoneActivity
 import android.example.flowerschemistry.ui.adapters.FavoritesAdapter
+import android.example.flowerschemistry.ui.utils.RegistrationActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -53,23 +54,7 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //AlertDialog для авторизации
-        val builder = AlertDialog.Builder(requireContext(),R.style.CustomAlertDialog)
-            .create()
-        val view = layoutInflater.inflate(R.layout.customview_layout,null)
-        val buttonAuth = view.findViewById<Button>(R.id.btn_authorization)
-        val buttonSkip = view.findViewById<ImageView>(R.id.iv_close)
-        builder.setView(view)
-        buttonAuth.setOnClickListener {
-            val intent = Intent(requireContext(), AuthorizationPhoneActivity::class.java)
-            startActivity(intent)
-        }
-
-        buttonSkip.setOnClickListener {
-            builder.dismiss()
-        }
-
-        builder.setCanceledOnTouchOutside(false)
-        builder.show()
+        alertDialogShow()
     }
 
     private fun  setUpRecyclerViewFavorites() {
@@ -82,5 +67,25 @@ class FavoritesFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
         adapterFavorites.setList(itemListFavorites)
+    }
+
+    private fun alertDialogShow(){
+        val builder = AlertDialog.Builder(requireContext(),R.style.CustomAlertDialog)
+            .create()
+        val view = layoutInflater.inflate(R.layout.customview_layout,null)
+        val buttonAuth = view.findViewById<Button>(R.id.btn_authorization)
+        val buttonSkip = view.findViewById<ImageView>(R.id.iv_close)
+        builder.setView(view)
+        buttonAuth.setOnClickListener {
+            val intent = Intent(requireContext(), RegistrationActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonSkip.setOnClickListener {
+            builder.dismiss()
+        }
+
+        builder.setCanceledOnTouchOutside(false)
+        builder.show()
     }
 }

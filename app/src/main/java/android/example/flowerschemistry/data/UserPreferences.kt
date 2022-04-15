@@ -36,7 +36,7 @@ class UserPreferences(context: Context){
         return prefs.getString(Constants.TOKEN, null)
     }
 
-    fun fetchUserName():String? {
+    fun fetchUserName(): String? {
         return prefs.getString(Constants.CLIENT_NAME, null)
     }
 

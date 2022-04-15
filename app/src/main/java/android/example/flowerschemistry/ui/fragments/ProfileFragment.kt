@@ -1,5 +1,6 @@
 package android.example.flowerschemistry.ui.fragments
 
+import android.example.flowerschemistry.Constants
 import android.example.flowerschemistry.data.UserPreferences
 import android.example.flowerschemistry.databinding.FragmentProfileBinding
 import android.os.Bundle
@@ -31,74 +32,18 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val view = binding.root
         sharedPreferences =  UserPreferences(requireContext())
-        binding.imBtnBack.setOnClickListener { findNavController().navigateUp() }
-        binding.btnSave.setOnClickListener {
-            name = binding.edName.text.toString()
-            number = binding.edTextPhone.text.toString()
-            createUser(number, name)
-            check(number, name)
-        }
+        binding.name.text = sharedPreferences.fetchUserName()
+        binding.number.text = sharedPreferences.fetchUserNumber()
 
-        binding.btnCancel.setOnClickListener {
-            sharedPreferences.delete()
-            Log.i("delete", sharedPreferences.fetchToken().toString())
-            data()
-        }
+        binding.imBtnBack.setOnClickListener { findNavController().navigateUp() }
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        data()
-    }
-
-    private fun createUser(number: String, name: String) {
-        userViewModel.createUser(number, name)
-
-    }
-
-    private fun check(number: String, name: String){
-        userViewModel.userCreated.observe(viewLifecycleOwner){
-            if (it == true){
-                sharedPreferences.saveUserName(name)
-                sharedPreferences.saveUserNumber(number)
-                val token: String = authViewModel.getToken(number).toString()
-                Log.i("token", token)
-                sharedPreferences.saveToken(token)
-                val action = ProfileFragmentDirections.actionProfileFragmentToHomeFragment()
-                findNavController().navigate(action)
-            }
-            else {
-                Toast.makeText(context, "Произошла ошибка", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun showData(){
-        val name = sharedPreferences.fetchUserName()
-        val number = sharedPreferences.fetchUserNumber()
-        binding.name.text = name
-        binding.number.text = number.toString()
-        binding.name.visibility = View.VISIBLE
-        binding.cardview1.visibility = View.GONE
-        binding.number.visibility = View.VISIBLE
-        binding.cardview2.visibility = View.GONE
-    }
-
-    private fun hideData(){
-        binding.cardview1.visibility = View.VISIBLE
-        binding.name.visibility = View.GONE
-        binding.cardview2.visibility = View.VISIBLE
-        binding.number.visibility = View.GONE
-    }
-
-    private fun data(){
-        if (sharedPreferences.fetchToken() != null){
-            showData()
-        } else{
-            hideData()
-        }
+        binding.name.text = sharedPreferences.fetchUserName()
+        binding.number.text = sharedPreferences.fetchUserNumber()
     }
 
 }

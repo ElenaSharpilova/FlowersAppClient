@@ -53,7 +53,7 @@
     <string name="bouquet_description">Удивите кого-то особенным дизайном в оранжевых тонах, которые напоминают нежную кожицу. Розы, лилии, герберы, хризантемы и альстромерии составляют эту свежую ароматную композицию. Подойдет любительницам персиковых тонов!</string>
     <string name="to_order">Заказать</string>
     <string name="contact_us">Свяжитесь с нами</string>
-    <string name="same_text">Вы можете связатся с нами любым удобным вам способом</string>
+    <string name="same_text">Вы можете связаться с нами любым удобным вам способом</string>
     <string name="email">himia-tsetov@gmail.com</string>
     <string name="address">Бульвар Эркиндик, 35, 1 этаж</string>
     <string name="address1">Адрес</string>
@@ -71,7 +71,7 @@
     <string name="total">Всего</string>
     <string name="pickup">Самовывоз</string>
     <string name="order_accepted">Ваш заказ принят!</string>
-    <string name="order_accepted_text">Ожидайте звонка администратора для потверждения заказа</string>
+    <string name="order_accepted_text">Ожидайте звонка администратора для подтверждения заказа</string>
     <string name="go_to_home">Перейти на главную</string>
     <string name="go_to_catalog">Перейти в каталог</string>
     <string name="your_orders">Ваши заказы</string>

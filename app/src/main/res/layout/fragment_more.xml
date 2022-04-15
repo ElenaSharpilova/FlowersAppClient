@@ -73,19 +73,7 @@
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toBottomOf="@+id/btn_history_order" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_about_us"
-        style="@style/for_more_button"
-        android:layout_marginTop="16dp"
-        android:drawableStart="@drawable/ic_about_us"
-        android:drawableEnd="@drawable/ic_arrow_left"
-        android:drawablePadding="30dp"
-        android:text="@string/about_us"
-        android:fontFamily="@font/roboto"
-        android:backgroundTint="@color/btn_1"
-        app:layout_constraintEnd_toStartOf="@+id/end_guideline"
-        app:layout_constraintStart_toStartOf="@+id/start_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_exit"
@@ -94,12 +82,13 @@
         android:drawableStart="@drawable/ic_exit"
         android:drawablePadding="14dp"
         android:text="@string/exit"
+        android:visibility="visible"
         android:fontFamily="@font/roboto"
         android:textColor="@color/pink"
         android:backgroundTint="@color/btn_1"
         app:layout_constraintEnd_toStartOf="@+id/end_guideline"
         app:layout_constraintStart_toStartOf="@+id/start_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/btn_about_us" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

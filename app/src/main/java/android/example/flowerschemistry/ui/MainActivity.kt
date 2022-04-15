@@ -5,7 +5,10 @@ import android.example.flowerschemistry.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -26,7 +29,8 @@ class   MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationView() {
-        val navController = findNavController(R.id.fragmentContainerView)
+        val supportFragManagerr = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController : NavController = supportFragManagerr.navController
         findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             .setupWithNavController(navController)
 

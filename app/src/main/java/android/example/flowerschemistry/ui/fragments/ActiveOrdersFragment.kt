@@ -4,6 +4,7 @@ package android.example.flowerschemistry.ui.fragments
 import android.example.flowerschemistry.R
 import android.example.flowerschemistry.data.UserPreferences
 import android.example.flowerschemistry.data.api.InterfaceAPI
+import android.example.flowerschemistry.data.models.YourOrder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,13 +29,12 @@ class ActiveOrdersFragment : Fragment() {
     private val adapterOrdersActive by lazy { OrdersActiveAdapter() }
     lateinit var sharedPreferences: UserPreferences
     lateinit var txtData: TextView
-    /*private val itemListOrdersActive by lazy {
-        arrayListOf(
+    private val itemListOrdersActive by lazy {
+       listOf(
             YourOrder(1, "Улыбка", "12.02.2021", 4330, "ул.Байтик Баатыра 17/1", "в пути", R.drawable.image_slider1),
             YourOrder(2, "Шарм", "01.08.2021", 2000, "мкр.Асанбай, д.32, кв.5", "в пути", R.drawable.image_slider2)
-
         )
-    }*/
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +42,10 @@ class ActiveOrdersFragment : Fragment() {
     ): View? {
         _binding = FragmentActiveOrdersBinding.inflate(inflater, container, false)
         val view = binding.root
+        setUpRecyclerViewMyOrdersActive()
 
-        sharedPreferences = UserPreferences(requireContext())
-        txtData = view.findViewById(R.id.tv)
+        //sharedPreferences = UserPreferences(requireContext())
+        //txtData = view.findViewById(R.id.tv)
         //getUserList()
 
         return view
@@ -73,6 +74,7 @@ class ActiveOrdersFragment : Fragment() {
             adapter = adapterOrdersActive
             layoutManager = LinearLayoutManager(requireContext())
         }
+        adapterOrdersActive.setData(itemListOrdersActive)
     }
 
     /*fun getUserList() {

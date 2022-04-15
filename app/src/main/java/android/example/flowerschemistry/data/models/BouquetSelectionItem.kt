@@ -10,7 +10,7 @@ data class BouquetSelectionItem(
     val description: String,
     val filial: Filial,
     val florist: Florist,
-    val flowers: List<Flower>,
+    //val flowers: List<Flower>,
     val id: Int,
     val image: String,
     val name: String,

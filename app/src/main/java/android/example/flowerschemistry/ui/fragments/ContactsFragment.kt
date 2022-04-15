@@ -29,6 +29,16 @@ class ContactsFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.tvLocation1.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://goo.gl/maps/uvJEzR26YebEdbmY9"))
+            startActivity(intent)
+        }
+
+        binding.tvInstagram.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/neobis.kg?igshid=YmMyMTA2M2Y="))
+            startActivity(intent)
+        }
+
         return view
     }
 

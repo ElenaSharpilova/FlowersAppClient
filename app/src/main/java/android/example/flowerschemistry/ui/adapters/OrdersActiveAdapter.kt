@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide
 
 class OrdersActiveAdapter: RecyclerView.Adapter<OrdersActiveAdapter.OrdersActiveViewHolder>() {
 
-    private var listActiveOrder = listOf<OrdersItem>()
+    private var listActiveOrder = listOf<YourOrder>()
 
-    fun setData(newList: List<OrdersItem>){
+    fun setData(newList: List<YourOrder>){
         this.listActiveOrder = newList
         notifyDataSetChanged()
     }
@@ -24,16 +24,16 @@ class OrdersActiveAdapter: RecyclerView.Adapter<OrdersActiveAdapter.OrdersActive
 
     class OrdersActiveViewHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = ItemYourOrderActiveBinding.bind(item)
-        fun bind(item: OrdersItem) = with(binding){
+        fun bind(item: YourOrder) = with(binding){
             //Glide.with(itemView.context).load(item.image).into(ivIcon)
-            //tvTitle.text = item.
-            tvPrice.text = item.finalCost.toString()
+            ivIcon.setImageResource(item.img)
+            tvTitle.text = item.name
+            tvPrice.text = item.price.toString()
             tvDate.text = item.date
             tvStatus.text = item.status
             tvAddress.text = item.address
         }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrdersActiveViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_your_order_active, parent, false)

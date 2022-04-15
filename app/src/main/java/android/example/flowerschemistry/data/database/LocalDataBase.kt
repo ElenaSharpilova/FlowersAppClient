@@ -7,9 +7,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 //@Database(entities = [BouquetCatalogItemItem::class], version = 1, exportSchema = false)
-abstract class LocalDataBase : RoomDatabase() {
+/*abstract class LocalDataBase : RoomDatabase() {
 
-    /*abstract fun databaseDao(): DatabaseDAO
+    abstract fun databaseDao(): DatabaseDAO
 
     companion object {
         @Volatile
@@ -28,5 +28,5 @@ abstract class LocalDataBase : RoomDatabase() {
                 instance
             }
         }
-    }*/
-}
+    }
+}*/

@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
     private val adapterBouquetPopularAdapter by lazy {BouquetPopularAdapter()}
     private val itemListFirstRow by lazy{
         mutableListOf(
-            Card(1, "На день рожденияя", R.drawable.card1),
+            Card(1, "На день рождения", R.drawable.card1),
             Card(2, "Для любимой", R.drawable.card2),
             Card(3, "Рождение ребенка", R.drawable.card3),
             Card(4, "Тематический", R.drawable.card4))

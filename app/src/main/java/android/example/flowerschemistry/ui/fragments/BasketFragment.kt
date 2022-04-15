@@ -24,7 +24,7 @@ class BasketFragment : Fragment() {
 
         binding.btnGoToCatalog.setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(R.id.action_basketFragment_to_orderFragment)
+                .navigate(R.id.action_basketFragment_to_homeFragment)
         }
 
         return view

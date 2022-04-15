@@ -8,7 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 interface DatabaseDAO {
-    /*@Insert(onConflict = OnConflictStrategy.ABORT)
+   /* @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(bouquetItem: BouquetCatalogItemItem)
 
     @Delete
