@@ -1,10 +1,9 @@
-package android.example.flowerschemistry.ui.utils
+package android.example.flowerschemistry.ui
 
 
 import android.content.Intent
 import android.example.flowerschemistry.data.UserPreferences
 import android.example.flowerschemistry.databinding.ActivityRegistrationBinding
-import android.example.flowerschemistry.ui.RegistrationSmsCodeActivity
 import android.example.flowerschemistry.viewmodel.AuthViewModel
 import android.example.flowerschemistry.viewmodel.RegistrationViewModel
 import androidx.appcompat.app.AppCompatActivity

@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
     private val itemListThirdRow by lazy{
         mutableListOf(
             Card(1, "Домашние цветы", R.drawable.card7),
-            Card(2, "Домашние цветы", R.drawable.card8))
+            Card(2, "Оформление ваших мероприятий", R.drawable.card8))
 
     }
 

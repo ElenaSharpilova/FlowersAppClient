@@ -14,10 +14,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
-class CompletedOrdersFragment : Fragment(), OnItemClickListenerYourOrder {
+class CompletedOrdersFragment : Fragment() {
     private var _binding: FragmentCompletedOrdersBinding? = null
     private val binding get() = _binding!!
-    private val adapterOrdersCompleted by lazy{ OrdersCompletedAdapter( this@CompletedOrdersFragment) }
+    private val adapterOrdersCompleted by lazy{ OrdersCompletedAdapter() }
 
     private val itemListOrdersCompleted by lazy {
         arrayListOf(
@@ -46,7 +46,7 @@ class CompletedOrdersFragment : Fragment(), OnItemClickListenerYourOrder {
         }
     }
 
-    override fun onItemClick(item: YourOrder) {
+    /*override fun onItemClick(item: YourOrder) {
         findNavController().navigate(R.id.action_completedOrdersFragment_to_orderDetailFragment)
-    }
+    }*/
 }

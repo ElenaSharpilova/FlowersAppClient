@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlowersChemistry">
         <activity
-            android:name=".ui.utils.RegistrationActivity"
+            android:name=".ui.RegistrationActivity"
             android:exported="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity

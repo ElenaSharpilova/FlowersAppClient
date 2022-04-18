@@ -3,13 +3,10 @@ package android.example.flowerschemistry.ui.adapters
 import android.example.flowerschemistry.R
 import android.example.flowerschemistry.data.models.*
 import android.example.flowerschemistry.databinding.ItemYourOrderActiveBinding
-import android.example.flowerschemistry.ui.utils.OrdersActiveDiffUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
 
 class OrdersActiveAdapter: RecyclerView.Adapter<OrdersActiveAdapter.OrdersActiveViewHolder>() {

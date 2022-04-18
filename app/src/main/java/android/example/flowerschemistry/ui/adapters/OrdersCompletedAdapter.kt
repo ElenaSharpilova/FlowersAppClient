@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-class OrdersCompletedAdapter(val clickListener: OnItemClickListenerYourOrder) : RecyclerView.Adapter<OrdersCompletedAdapter.OrdersCompletedViewHolder>() {
+class OrdersCompletedAdapter : RecyclerView.Adapter<OrdersCompletedAdapter.OrdersCompletedViewHolder>() {
 
     var list = ArrayList <YourOrder>()
     fun setList(newList: MutableList<YourOrder>){
@@ -24,16 +24,13 @@ class OrdersCompletedAdapter(val clickListener: OnItemClickListenerYourOrder) : 
 
     class OrdersCompletedViewHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = ItemYourOrderCompletedBinding.bind(item)
-        fun bind(item: YourOrder, action:OnItemClickListenerYourOrder) = with(binding){
+        fun bind(item: YourOrder) = with(binding){
             ivIcon.setImageResource(item.img)
             tvTitle.text = item.name
             tvPrice.text = item.price.toString()
             tvDate.text = item.date
             tvAddress.text = item.address
             tvStatus.text = item.status
-            itemView.setOnClickListener{
-                action.onItemClick(item)
-            }
         }
     }
 
@@ -43,7 +40,7 @@ class OrdersCompletedAdapter(val clickListener: OnItemClickListenerYourOrder) : 
     }
 
     override fun onBindViewHolder(holder: OrdersCompletedViewHolder, position: Int) {
-       holder.bind(list[position], clickListener)
+       holder.bind(list[position])
     }
 
     override fun getItemCount(): Int {
